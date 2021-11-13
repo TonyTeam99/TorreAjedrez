@@ -1,5 +1,7 @@
 package org.iesalandalus.programacion.torreajedrez;
 
+import java.util.Objects;
+
 import org.apache.commons.math3.exception.NullArgumentException;
 
 public class Posicion {
@@ -40,6 +42,24 @@ public class Posicion {
 
 	public char getColumna() {
 		return columna;
+	}
+
+	// Métodos equals and hashcode
+	@Override
+	public int hashCode() {
+		return Objects.hash(columna, fila);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Posicion other = (Posicion) obj;
+		return columna == other.columna && fila == other.fila;
 	}
 
 }
