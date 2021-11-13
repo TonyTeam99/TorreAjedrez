@@ -24,10 +24,20 @@ public class Torre {
 		return color;
 	}
 
-	// Constructor de Torre Negra en 8h
+	// Constructor por defecto de Torre Negra en 8h
 	public Torre() {
 		posicion = new Posicion(8, 'h');
 		setColor(Color.NEGRO);
+	}
+
+	public Torre(Color color) {
+		setColor(color);
+		if (color.equals(color.BLANCO)) {
+			setPosicion(new Posicion(1, 'h'));
+		} else {
+			setColor(Color.NEGRO);
+			setPosicion(new Posicion(8, 'h'));
+		}
 	}
 
 }
