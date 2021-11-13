@@ -30,6 +30,7 @@ public class Torre {
 		setColor(Color.NEGRO);
 	}
 
+	// Constructor posición torres blanca y negra
 	public Torre(Color color) {
 		setColor(color);
 		if (color.equals(color.BLANCO)) {
@@ -37,6 +38,21 @@ public class Torre {
 		} else {
 			setColor(Color.NEGRO);
 			setPosicion(new Posicion(8, 'h'));
+		}
+	}
+
+	// Constructor con entradas de color y columna
+	public Torre(Color color, char columna) {
+		setColor(color);
+		if (columna == 'A' || columna == 'a' || columna == 'H' || columna == 'h') {
+			if (color.equals(color.BLANCO)) {
+				setPosicion(new Posicion(1, columna));
+			} else {
+				setColor(Color.NEGRO);
+				setPosicion(new Posicion(8, columna));
+			}
+		} else {
+			throw new IllegalArgumentException("ERROR: Columna no válida.");
 		}
 	}
 
