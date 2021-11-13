@@ -4,6 +4,13 @@ public class Posicion {
 	private int fila;
 	private char columna;
 
+	// Constructor
+	public Posicion(int fila, char columna) {
+		setFila(fila);
+		setColumna(columna);
+	}
+
+	// Setters and Getters
 	private void setFila(int fila) {
 		if (fila < 1 || fila > 8)
 			throw new IllegalArgumentException("ERROR: Fila no válida.");
@@ -15,7 +22,7 @@ public class Posicion {
 	}
 
 	private void setColumna(char columna) {
-		if (!(columna == 'a' || columna == 'b' || columna == 'c' || columna == 'd' || columna == 'e' || columna == 'f' || columna == 'g' || columna == 'h'))
+		if (columna < 'a' || columna > 'h')
 			throw new IllegalArgumentException("ERROR: Columna no válida.");
 		this.columna = columna;
 	}
