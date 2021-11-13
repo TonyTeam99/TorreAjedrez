@@ -24,6 +24,7 @@ public class Torre {
 		return color;
 	}
 
+	// Constructor de Torre Negra en 8h
 	public Torre() {
 		posicion = new Posicion(8, 'h');
 		setColor(Color.NEGRO);
