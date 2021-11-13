@@ -62,4 +62,10 @@ public class Posicion {
 		return columna == other.columna && fila == other.fila;
 	}
 
+	// Método ToString
+	@Override
+	public String toString() {
+		return "Posicion [fila=" + this.fila + ", columna=" + this.columna + "]";
+	}
+
 }
