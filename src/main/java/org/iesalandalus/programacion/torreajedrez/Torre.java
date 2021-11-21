@@ -49,7 +49,7 @@ public class Torre {
 	}
 
 	private void setColor(Color color) {
-		if (color == null) {
+		if (color.equals(null)) {
 			throw new NullPointerException("ERROR: No se puede asignar un color nulo.");
 		}
 		this.color = color;
@@ -68,7 +68,7 @@ public class Torre {
 		}
 		switch (direccion) {
 		case ARRIBA:
-			if (color == color.NEGRO) {
+			if (color.equals(color.NEGRO)) {
 				try {
 					setPosicion(new Posicion(posicion.getFila() - pasos, posicion.getColumna()));
 				} catch (IllegalArgumentException e) {
@@ -83,7 +83,7 @@ public class Torre {
 			}
 			break;
 		case ABAJO:
-			if (color == color.NEGRO) {
+			if (color.equals(color.NEGRO)) {
 				try {
 					setPosicion(new Posicion(posicion.getFila() + pasos, posicion.getColumna()));
 				} catch (IllegalArgumentException e) {
@@ -98,7 +98,7 @@ public class Torre {
 			}
 			break;
 		case IZQUIERDA:
-			if (color == color.NEGRO) {
+			if (color.equals(color.NEGRO)) {
 				try {
 					setPosicion(new Posicion(posicion.getFila(), (char) (posicion.getColumna() + pasos)));
 				} catch (IllegalArgumentException e) {
@@ -113,7 +113,7 @@ public class Torre {
 			}
 			break;
 		case DERECHA:
-			if (color == color.NEGRO) {
+			if (color.equals(color.NEGRO)) {
 				try {
 					setPosicion(new Posicion(posicion.getFila(), (char) (posicion.getColumna() - pasos)));
 				} catch (IllegalArgumentException e) {
@@ -130,4 +130,45 @@ public class Torre {
 		}
 	}
 
+	// Método enrocar
+	public void enrocar(Direccion direccion) throws OperationNotSupportedException {
+		if (direccion == null) {
+			throw new NullPointerException("ERROR: La dirección no puede ser nula.");
+		}
+		if (color.equals(color.NEGRO)) {
+			switch (direccion) {
+			case ENROQUE_CORTO:
+				if (posicion.getColumna() == 'h' && (posicion.getFila() == 8)) {
+					setPosicion(new Posicion(posicion.getColumna() == 'f' && posicion.getFila() == 8));
+				} else {
+					throw new OperationNotSupportedException("ERROR: Movimiento de enroque no válido.");
+				}
+				break;
+			case ENROQUE_LARGO:
+				if (posicion.getColumna() == 'a' && (posicion.getFila() == 8)) {
+					setPosicion(new Posicion(posicion.getColumna() == 'd' && posicion.getFila() == 8));
+				} else {
+					throw new OperationNotSupportedException("ERROR: Movimiento de enroque no válido.");
+				}
+				break;
+			}
+		} else {
+			switch (direccion) {
+			case ENROQUE_CORTO:
+				if (posicion.getColumna() == 'h' && (posicion.getFila() == 1)) {
+					setPosicion(new Posicion(posicion.getColumna() == 'f' && posicion.getFila() == 1));
+				} else {
+					throw new OperationNotSupportedException("ERROR: Movimiento de enroque no válido.");
+				}
+				break;
+			case ENROQUE_LARGO:
+				if (posicion.getColumna() == 'a' && (posicion.getFila() == 1)) {
+					setPosicion(new Posicion(posicion.getColumna() == 'd' && posicion.getFila() == 1));
+				} else {
+					throw new OperationNotSupportedException("ERROR: Movimiento de enroque no válido.");
+				}
+				break;
+			}
+		}
+	}
 }

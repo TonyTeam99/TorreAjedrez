@@ -2,8 +2,6 @@ package org.iesalandalus.programacion.torreajedrez;
 
 import java.util.Objects;
 
-import org.apache.commons.math3.exception.NullArgumentException;
-
 public class Posicion {
 	private int fila;
 	private char columna;
@@ -17,10 +15,10 @@ public class Posicion {
 	// Constructor copia
 	public Posicion(Posicion p) {
 		if (p == null) {
-			throw new NullArgumentException("ERROR: No es posible copiar una posición nula.");
+			throw new NullPointerException("ERROR: No es posible copiar una posición nula.");
 		}
-		this.fila = (p.getFila());
-		this.columna = (p.getColumna());
+		setFila(p.getFila());
+		setColumna(p.getColumna());
 	}
 
 	// Setters and Getters
