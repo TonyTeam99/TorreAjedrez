@@ -10,7 +10,7 @@ public class Torre {
 
 	// Constructor por defecto de Torre Negra en 8h
 	public Torre() {
-		posicion = new Posicion(8, 'h');
+		setPosicion(new Posicion(8, 'h'));
 		setColor(Color.NEGRO);
 	}
 
@@ -141,14 +141,14 @@ public class Torre {
 			switch (direccion) {
 			case ENROQUE_CORTO:
 				if (posicion.getColumna() == 'h' && (posicion.getFila() == 8)) {
-					setPosicion(new Posicion(posicion.getColumna() == 'f' && posicion.getFila() == 8));
+					setPosicion(new Posicion(8, 'f'));
 				} else {
 					throw new OperationNotSupportedException("ERROR: Movimiento de enroque no válido.");
 				}
 				break;
 			case ENROQUE_LARGO:
 				if (posicion.getColumna() == 'a' && (posicion.getFila() == 8)) {
-					setPosicion(new Posicion(posicion.getColumna() == 'd' && posicion.getFila() == 8));
+					setPosicion(new Posicion(8, 'd'));
 				} else {
 					throw new OperationNotSupportedException("ERROR: Movimiento de enroque no válido.");
 				}
@@ -158,14 +158,14 @@ public class Torre {
 			switch (direccion) {
 			case ENROQUE_CORTO:
 				if (posicion.getColumna() == 'h' && (posicion.getFila() == 1)) {
-					setPosicion(new Posicion(posicion.getColumna() == 'f' && posicion.getFila() == 1));
+					setPosicion(new Posicion(1, 'f'));
 				} else {
 					throw new OperationNotSupportedException("ERROR: Movimiento de enroque no válido.");
 				}
 				break;
 			case ENROQUE_LARGO:
 				if (posicion.getColumna() == 'a' && (posicion.getFila() == 1)) {
-					setPosicion(new Posicion(posicion.getColumna() == 'd' && posicion.getFila() == 1));
+					setPosicion(new Posicion(1, 'd'));
 				} else {
 					throw new OperationNotSupportedException("ERROR: Movimiento de enroque no válido.");
 				}
@@ -197,5 +197,4 @@ public class Torre {
 	public String toString() {
 		return "fila=" + posicion.getFila() + ", columna=" + posicion.getColumna() + ", color=" + color;
 	}
-
 }
