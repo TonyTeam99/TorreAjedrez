@@ -72,7 +72,7 @@ public class MainApp {
 		return columna;
 	}
 
-	// Método mostrar menu direcciones
+	// Método mostrar menú direcciones
 	private static void mostrarMenuDirecciones() {
 		System.out.println("============================");
 		System.out.println(" ");
@@ -84,6 +84,40 @@ public class MainApp {
 		System.out.println("6. Realizar enroque largo.");
 		System.out.println(" ");
 		System.out.println("============================");
+	}
+
+	// Método elegir Dirección
+	private static Direccion elegirDireccion() {
+		Direccion direccion = null;
+		int opcionDireccion = 0;
+		do {
+			System.out.println(" ");
+			System.out.print("Elija una opción entre las anteriores: ");
+			opcionDireccion = Entrada.entero();
+		} while (opcionDireccion < 1 || opcionDireccion > 6);
+
+		switch (opcionDireccion) {
+		case 1:
+			direccion = direccion.ARRIBA;
+			break;
+		case 2:
+			direccion = direccion.ABAJO;
+			break;
+		case 3:
+			direccion = direccion.IZQUIERDA;
+			break;
+		case 4:
+			direccion = direccion.DERECHA;
+			break;
+		case 5:
+			direccion = direccion.ENROQUE_CORTO;
+			break;
+		case 6:
+			direccion = direccion.ENROQUE_LARGO;
+			break;
+		}
+
+		return direccion;
 	}
 
 }
