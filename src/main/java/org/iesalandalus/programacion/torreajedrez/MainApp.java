@@ -50,7 +50,7 @@ public class MainApp {
 			System.out.println(" ");
 			System.out.print("Elija un color: ");
 			opcionColor = Entrada.entero();
-		} while (opcionColor != 1 && opcionColor != 2);
+		} while (opcionColor < 1 || opcionColor > 2);
 		switch (opcionColor) {
 		case 1:
 			color = Color.NEGRO;
@@ -61,4 +61,15 @@ public class MainApp {
 		}
 		return color;
 	}
+
+	// Método elegir columna
+	private static char elegirColumna() {
+		char columna = 0;
+		do {
+			System.out.print("Introduzca la columna deseada (A , a , H , h): ");
+			columna = Entrada.caracter();
+		} while (columna != 'a' && columna != 'A' && columna != 'h' && columna != 'H');
+		return columna;
+	}
+
 }
