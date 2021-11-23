@@ -1,13 +1,12 @@
 package org.iesalandalus.programacion.torreajedrez;
 
+import org.iesalandalus.programacion.utilidades.Entrada;
+
 public class MainApp {
 	private static Torre torre;
 
 	public static void main(String[] args) {
 		System.out.println("kk");
-		Torre polla = new Torre();
-		System.out.println(polla.toString());
-
 	}
 
 	// Método mostrar Torre
@@ -29,4 +28,37 @@ public class MainApp {
 		System.out.println("5. Salir.");
 	}
 
+	// Método elegir opción
+	private static int elegirOpcion() {
+		int opcionMenu;
+		do {
+			System.out.println("Elija una de las opciones anteriores");
+			opcionMenu = Entrada.entero();
+		} while (opcionMenu < 1 || opcionMenu > 5);
+		return opcionMenu;
+	}
+
+	// Método elegir Color
+	private static Color elegirColor() {
+		Color color = null;
+		int opcionColor;
+		do {
+			System.out.println("===============");
+			System.out.println(" ");
+			System.out.println("1. Negro.");
+			System.out.println("2. Blanco.");
+			System.out.println(" ");
+			System.out.print("Elija un color: ");
+			opcionColor = Entrada.entero();
+		} while (opcionColor != 1 && opcionColor != 2);
+		switch (opcionColor) {
+		case 1:
+			color = Color.NEGRO;
+			break;
+		case 2:
+			color = color.BLANCO;
+			break;
+		}
+		return color;
+	}
 }
