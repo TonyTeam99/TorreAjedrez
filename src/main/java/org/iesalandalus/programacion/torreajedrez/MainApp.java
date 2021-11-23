@@ -8,13 +8,15 @@ public class MainApp {
 	private static Torre torre;
 
 	public static void main(String[] args) {
+		int elegir;
 		System.out.println("=====================================");
 		System.out.println("============Torre de Ajedrez=========");
 		System.out.println("=====================================");
 		do {
 			mostrarMenu();
-			ejecutarOpcion(elegirOpcion());
-		} while (elegirOpcion() != 5);
+			elegir = elegirOpcion();
+			ejecutarOpcion(elegir);
+		} while (elegir < 1 || elegir < 5);
 	}
 
 	// Método mostrar Torre
@@ -169,15 +171,19 @@ public class MainApp {
 		switch (opcion) {
 		case 1:
 			crearTorreDefecto();
+			mostrarTorre();
 			break;
 		case 2:
 			crearTorreColor();
+			mostrarTorre();
 			break;
 		case 3:
 			crearTorreColorColumna();
+			mostrarTorre();
 			break;
 		case 4:
 			mover();
+			mostrarTorre();
 			break;
 		case 5:
 			System.out.println("Vuelva pronto");

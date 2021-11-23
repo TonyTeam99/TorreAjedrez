@@ -195,6 +195,6 @@ public class Torre {
 	// Método toString
 	@Override
 	public String toString() {
-		return "Torre fila=" + posicion.getFila() + ", columna=" + posicion.getColumna() + ", color=" + color;
+		return "Torre [fila=" + posicion.getFila() + ", columna=" + posicion.getColumna() + ", color=" + color + "]";
 	}
 }
