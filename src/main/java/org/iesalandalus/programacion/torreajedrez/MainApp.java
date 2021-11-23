@@ -63,7 +63,7 @@ public class MainApp {
 	}
 
 	// Método elegir columna
-	private static char elegirColumna() {
+	private static char elegirColumnaInicial() {
 		char columna = 0;
 		do {
 			System.out.print("Introduzca la columna deseada (A , a , H , h): ");
@@ -118,6 +118,21 @@ public class MainApp {
 		}
 
 		return direccion;
+	}
+
+	// Método crear Torre por defecto
+	private static void crearTorreDefecto() {
+		new Torre();
+	}
+
+	// Método crear Torre Color
+	private static void crearTorreColor() {
+		new Torre(elegirColor());
+	}
+
+	// Método crear Torre Color y Columna Inicial
+	private static void crearTorreColorColumna() {
+		new Torre(elegirColor(), elegirColumnaInicial());
 	}
 
 }
