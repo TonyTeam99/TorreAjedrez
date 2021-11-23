@@ -8,7 +8,13 @@ public class MainApp {
 	private static Torre torre;
 
 	public static void main(String[] args) {
-		System.out.println("kk");
+		System.out.println("=====================================");
+		System.out.println("============Torre de Ajedrez=========");
+		System.out.println("=====================================");
+		do {
+			mostrarMenu();
+			ejecutarOpcion(elegirOpcion());
+		} while (elegirOpcion() != 5);
 	}
 
 	// Método mostrar Torre
