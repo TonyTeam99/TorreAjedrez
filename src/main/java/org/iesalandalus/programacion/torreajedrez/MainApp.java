@@ -1,5 +1,7 @@
 package org.iesalandalus.programacion.torreajedrez;
 
+import javax.naming.OperationNotSupportedException;
+
 import org.iesalandalus.programacion.utilidades.Entrada;
 
 public class MainApp {
@@ -122,17 +124,58 @@ public class MainApp {
 
 	// Método crear Torre por defecto
 	private static void crearTorreDefecto() {
-		new Torre();
+		torre = new Torre();
 	}
 
 	// Método crear Torre Color
 	private static void crearTorreColor() {
-		new Torre(elegirColor());
+		torre = new Torre(elegirColor());
 	}
 
 	// Método crear Torre Color y Columna Inicial
 	private static void crearTorreColorColumna() {
-		new Torre(elegirColor(), elegirColumnaInicial());
+		torre = new Torre(elegirColor(), elegirColumnaInicial());
 	}
 
+	// Método mover
+	private static void mover() {
+		mostrarMenuDirecciones();
+		Direccion direccion = elegirDireccion();
+		if (direccion == direccion.ENROQUE_CORTO || direccion == direccion.ENROQUE_LARGO) {
+			try {
+				torre.enrocar(direccion);
+			} catch (OperationNotSupportedException e) {
+				System.out.println(e.getMessage());
+			}
+		} else {
+			System.out.println("Introduzca el número de pasos a mover");
+			int pasos = Entrada.entero();
+			try {
+				torre.mover(direccion, pasos);
+			} catch (OperationNotSupportedException e) {
+				System.out.println(e.getMessage());
+			}
+		}
+	}
+
+	// Método ejecutar Opción
+	private static void ejecutarOpcion(int opcion) {
+		switch (opcion) {
+		case 1:
+			crearTorreDefecto();
+			break;
+		case 2:
+			crearTorreColor();
+			break;
+		case 3:
+			crearTorreColorColumna();
+			break;
+		case 4:
+			mover();
+			break;
+		case 5:
+			System.out.println("Vuelva pronto");
+			break;
+		}
+	}
 }
